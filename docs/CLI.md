@@ -68,6 +68,7 @@ da3 auto INPUT_PATH [OPTIONS]
 | `--model-dir` | str | Default model | Model directory path |
 | `--export-dir` | str | `debug` | Export directory |
 | `--export-format` | str | `glb` | Export format (supports `mini_npz`, `glb`, `ply`, `feat_vis`, etc., can be combined with hyphens) |
+| `--infer-gs` | bool | `False` | Enable Gaussian Splatting branch (required for `gs_ply`/`gs_video`; supported on `da3-giant` or `da3nested-giant-large`) |
 | `--device` | str | `cuda` | Device to use |
 | `--use-backend` | bool | `False` | Use backend service for inference |
 | `--backend-url` | str | `http://localhost:8008` | Backend service URL |
@@ -120,6 +121,7 @@ da3 image IMAGE_PATH [OPTIONS]
 | `--model-dir` | str | Default model | Model directory path |
 | `--export-dir` | str | `debug` | Export directory |
 | `--export-format` | str | `glb` | Export format |
+| `--infer-gs` | bool | `False` | Enable Gaussian Splatting branch (required for `gs_ply`/`gs_video`; supported on `da3-giant` or `da3nested-giant-large`) |
 | `--device` | str | `cuda` | Device to use |
 | `--use-backend` | bool | `False` | Use backend service for inference |
 | `--backend-url` | str | `http://localhost:8008` | Backend service URL |
@@ -172,6 +174,7 @@ da3 images IMAGES_DIR [OPTIONS]
 | `--model-dir` | str | Default model | Model directory path |
 | `--export-dir` | str | `debug` | Export directory |
 | `--export-format` | str | `glb` | Export format |
+| `--infer-gs` | bool | `False` | Enable Gaussian Splatting branch (required for `gs_ply`/`gs_video`; supported on `da3-giant` or `da3nested-giant-large`) |
 | `--device` | str | `cuda` | Device to use |
 | `--use-backend` | bool | `False` | Use backend service for inference |
 | `--backend-url` | str | `http://localhost:8008` | Backend service URL |
@@ -221,6 +224,7 @@ da3 video VIDEO_PATH [OPTIONS]
 | `--model-dir` | str | Default model | Model directory path |
 | `--export-dir` | str | `debug` | Export directory |
 | `--export-format` | str | `glb` | Export format |
+| `--infer-gs` | bool | `False` | Enable Gaussian Splatting branch (required for `gs_ply`/`gs_video`; supported on `da3-giant` or `da3nested-giant-large`) |
 | `--device` | str | `cuda` | Device to use |
 | `--use-backend` | bool | `False` | Use backend service for inference |
 | `--backend-url` | str | `http://localhost:8008` | Backend service URL |
@@ -274,6 +278,7 @@ da3 colmap COLMAP_DIR [OPTIONS]
 | `--model-dir` | str | Default model | Model directory path |
 | `--export-dir` | str | `debug` | Export directory |
 | `--export-format` | str | `glb` | Export format |
+| `--infer-gs` | bool | `False` | Enable Gaussian Splatting branch (required for `gs_ply`/`gs_video`; supported on `da3-giant` or `da3nested-giant-large`) |
 | `--device` | str | `cuda` | Device to use |
 | `--use-backend` | bool | `False` | Use backend service for inference |
 | `--backend-url` | str | `http://localhost:8008` | Backend service URL |
@@ -462,6 +467,8 @@ da3 gallery --gallery-dir ./workspace --open-browser
 - 🧊 `ply`: Colored point cloud in PLY format
   - 🔍 `feat_vis`: Feature visualization
   - Example: `mini_npz-glb` exports both formats
+
+- **`--infer-gs`**: Enable 3D Gaussian Splatting branch (required for `gs_ply`/`gs_video`; use with `da3-giant` or `da3nested-giant-large`)
 
 - **`--process-res`** / **`--process-res-method`**: Control preprocessing resolution strategy
   - `process-res`: Target resolution (default 504)

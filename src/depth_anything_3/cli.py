@@ -116,6 +116,10 @@ def auto(
     model_dir: str = typer.Option(DEFAULT_MODEL, help="Model directory path"),
     export_dir: str = typer.Option(DEFAULT_EXPORT_DIR, help="Export directory"),
     export_format: str = typer.Option("glb", help="Export format"),
+    infer_gs: bool = typer.Option(
+        False,
+        help="Enable Gaussian Splatting branch (required for gs_ply/gs_video exports; supported on da3-giant, da3nested-giant-large)",
+    ),
     device: str = typer.Option("cuda", help="Device to use"),
     use_backend: bool = typer.Option(False, help="Use backend service for inference"),
     backend_url: str = typer.Option(
@@ -209,6 +213,7 @@ def auto(
             device=device,
             backend_url=final_backend_url,
             export_format=export_format,
+            infer_gs=infer_gs,
             process_res=process_res,
             process_res_method=process_res_method,
             export_feat_layers=export_feat_layers,
@@ -236,6 +241,7 @@ def auto(
             device=device,
             backend_url=final_backend_url,
             export_format=export_format,
+            infer_gs=infer_gs,
             process_res=process_res,
             process_res_method=process_res_method,
             export_feat_layers=export_feat_layers,
@@ -263,6 +269,7 @@ def auto(
             device=device,
             backend_url=final_backend_url,
             export_format=export_format,
+            infer_gs=infer_gs,
             process_res=process_res,
             process_res_method=process_res_method,
             export_feat_layers=export_feat_layers,
@@ -290,6 +297,7 @@ def auto(
             device=device,
             backend_url=final_backend_url,
             export_format=export_format,
+            infer_gs=infer_gs,
             process_res=process_res,
             process_res_method=process_res_method,
             export_feat_layers=export_feat_layers,
@@ -312,6 +320,10 @@ def image(
     model_dir: str = typer.Option(DEFAULT_MODEL, help="Model directory path"),
     export_dir: str = typer.Option(DEFAULT_EXPORT_DIR, help="Export directory"),
     export_format: str = typer.Option("glb", help="Export format"),
+    infer_gs: bool = typer.Option(
+        False,
+        help="Enable Gaussian Splatting branch (required for gs_ply/gs_video exports; supported on da3-giant, da3nested-giant-large)",
+    ),
     device: str = typer.Option("cuda", help="Device to use"),
     use_backend: bool = typer.Option(False, help="Use backend service for inference"),
     backend_url: str = typer.Option(
@@ -368,6 +380,7 @@ def image(
         device=device,
         backend_url=final_backend_url,
         export_format=export_format,
+        infer_gs=infer_gs,
         process_res=process_res,
         process_res_method=process_res_method,
         export_feat_layers=export_feat_layers,
@@ -389,6 +402,10 @@ def images(
     model_dir: str = typer.Option(DEFAULT_MODEL, help="Model directory path"),
     export_dir: str = typer.Option(DEFAULT_EXPORT_DIR, help="Export directory"),
     export_format: str = typer.Option("glb", help="Export format"),
+    infer_gs: bool = typer.Option(
+        False,
+        help="Enable Gaussian Splatting branch (required for gs_ply/gs_video exports; supported on da3-giant, da3nested-giant-large)",
+    ),
     device: str = typer.Option("cuda", help="Device to use"),
     use_backend: bool = typer.Option(False, help="Use backend service for inference"),
     backend_url: str = typer.Option(
@@ -445,6 +462,7 @@ def images(
         device=device,
         backend_url=final_backend_url,
         export_format=export_format,
+        infer_gs=infer_gs,
         process_res=process_res,
         process_res_method=process_res_method,
         export_feat_layers=export_feat_layers,
@@ -471,6 +489,10 @@ def colmap(
     model_dir: str = typer.Option(DEFAULT_MODEL, help="Model directory path"),
     export_dir: str = typer.Option(DEFAULT_EXPORT_DIR, help="Export directory"),
     export_format: str = typer.Option("glb", help="Export format"),
+    infer_gs: bool = typer.Option(
+        False,
+        help="Enable Gaussian Splatting branch (required for gs_ply/gs_video exports; supported on da3-giant, da3nested-giant-large)",
+    ),
     device: str = typer.Option("cuda", help="Device to use"),
     use_backend: bool = typer.Option(False, help="Use backend service for inference"),
     backend_url: str = typer.Option(
@@ -524,6 +546,7 @@ def colmap(
         device=device,
         backend_url=final_backend_url,
         export_format=export_format,
+        infer_gs=infer_gs,
         process_res=process_res,
         process_res_method=process_res_method,
         export_feat_layers=export_feat_layers,
@@ -546,6 +569,10 @@ def video(
     model_dir: str = typer.Option(DEFAULT_MODEL, help="Model directory path"),
     export_dir: str = typer.Option(DEFAULT_EXPORT_DIR, help="Export directory"),
     export_format: str = typer.Option("glb", help="Export format"),
+    infer_gs: bool = typer.Option(
+        False,
+        help="Enable Gaussian Splatting branch (required for gs_ply/gs_video exports; supported on da3-giant, da3nested-giant-large)",
+    ),
     device: str = typer.Option("cuda", help="Device to use"),
     use_backend: bool = typer.Option(False, help="Use backend service for inference"),
     backend_url: str = typer.Option(
@@ -599,6 +626,7 @@ def video(
         device=device,
         backend_url=final_backend_url,
         export_format=export_format,
+        infer_gs=infer_gs,
         process_res=process_res,
         process_res_method=process_res_method,
         export_feat_layers=export_feat_layers,

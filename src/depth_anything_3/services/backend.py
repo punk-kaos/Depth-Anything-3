@@ -48,6 +48,7 @@ class InferenceRequest(BaseModel):
     image_paths: List[str]
     export_dir: Optional[str] = None
     export_format: str = "mini_npz-glb"
+    infer_gs: bool = False
     extrinsics: Optional[List[List[List[float]]]] = None
     intrinsics: Optional[List[List[List[float]]]] = None
     process_res: int = 504
@@ -276,6 +277,7 @@ def _run_inference_task(task_id: str):
         inference_kwargs = {
             "image": request.image_paths,
             "export_format": request.export_format,
+            "infer_gs": request.infer_gs,
             "process_res": request.process_res,
             "process_res_method": request.process_res_method,
             "export_feat_layers": request.export_feat_layers,

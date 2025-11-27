@@ -202,6 +202,14 @@ class DepthAnything3(nn.Module, PyTorchModelHubMixin):
         # Convert raw output to prediction
         prediction = self._convert_to_prediction(raw_output)
 
+        # Ensure Gaussian branch produced outputs when requested
+        if infer_gs and prediction.gaussians is None:
+            raise RuntimeError(
+                "Gaussian splatting was requested (infer_gs=True) but the model did not return "
+                "gaussians. Use a GS-capable checkpoint (da3-giant or da3nested-giant-large) "
+                "and ensure the flag is forwarded to inference."
+            )
+
         # Align prediction to extrinsincs
         prediction = self._align_to_input_extrinsics_intrinsics(
             extrinsics, intrinsics, prediction, align_to_input_ext_scale
